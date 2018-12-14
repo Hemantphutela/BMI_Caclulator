@@ -38,7 +38,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let name = userArray[indexPath.row]
-        cell.textLabel!.text = name.name! + " Your Bmi is " + name.bmi!
+        cell.textLabel!.text = name.name! + " Bmi " + name.bmi! //+ " you are " + name.desc!
         return cell
     }
     
@@ -52,6 +52,25 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(error)
         }
     
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(userArray[indexPath.row])
+            userArray.remove(at: indexPath.row)
+            
+            do{
+                try context.save()
+            }
+            catch
+            {
+                print("There was an error while deleting")
+            }
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
