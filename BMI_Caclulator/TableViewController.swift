@@ -8,16 +8,50 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+import CoreData
 
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var userArray:[User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.fetchData()
+        self.tableView.reloadData()
+        
+        
+    }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let name = userArray[indexPath.row]
+        cell.textLabel!.text = name.name! + " Your Bmi is " + name.bmi!
+        return cell
+    }
+    
+    // function to retreive data from database
+    func fetchData(){
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do {
+            userArray = try context.fetch(User.fetchRequest())
+        }catch{
+            print(error)
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,17 +61,17 @@ class TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
+//
+//
     
     
     @IBAction func backbtn(_ sender: UIBarButtonItem) {

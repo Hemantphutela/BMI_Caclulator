@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 //var bmi = ""
 //var height = ""
@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var BMI: UILabel!
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,13 +43,25 @@ class ViewController: UIViewController {
         {
             return
         }
+        // Calculating BMI
         let height = Float(self.Height.text!)!
         let weight = Float(self.Weight.text!)!
         let heightsquare = height*height
         var bmi:Float = weight/heightsquare
         
-        self.BMI.text = "Hello \(self.Name.text!) Your bmi is \(String(bmi))"
+        self.BMI.text = "\(String(bmi))"
+        // Saving data to core data
+        let newUser = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+        newUser.setValue(self.Name!.text, forKey: "name")
+        newUser.setValue(self.BMI!.text, forKey: "bmi")
+        
+        do{
+            try context.save()
+        }catch{
+            print(error)
+        }
     }
+   
     
     
     override func didReceiveMemoryWarning() {
