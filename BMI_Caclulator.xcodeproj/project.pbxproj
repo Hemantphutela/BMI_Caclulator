@@ -13,6 +13,8 @@
 		4169E3DB21C3343C0060CC48 /* BMI_Caclulator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4169E3D921C3343C0060CC48 /* BMI_Caclulator.xcdatamodeld */; };
 		4169E3DD21C3343E0060CC48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4169E3DC21C3343E0060CC48 /* Assets.xcassets */; };
 		4169E3E021C3343E0060CC48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4169E3DE21C3343E0060CC48 /* LaunchScreen.storyboard */; };
+		4169E3E821C335140060CC48 /* Health.png in Resources */ = {isa = PBXBuildFile; fileRef = 4169E3E721C335140060CC48 /* Health.png */; };
+		4169E3EA21C33AEB0060CC48 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4169E3E921C33AEB0060CC48 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4169E3DC21C3343E0060CC48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4169E3DF21C3343E0060CC48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4169E3E121C3343E0060CC48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4169E3E721C335140060CC48 /* Health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Health.png; sourceTree = "<group>"; };
+		4169E3E921C33AEB0060CC48 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,11 @@
 				4169E3D421C3343C0060CC48 /* ViewController.swift */,
 				4169E3D621C3343C0060CC48 /* Main.storyboard */,
 				4169E3DC21C3343E0060CC48 /* Assets.xcassets */,
+				4169E3E721C335140060CC48 /* Health.png */,
 				4169E3DE21C3343E0060CC48 /* LaunchScreen.storyboard */,
 				4169E3E121C3343E0060CC48 /* Info.plist */,
 				4169E3D921C3343C0060CC48 /* BMI_Caclulator.xcdatamodeld */,
+				4169E3E921C33AEB0060CC48 /* TableViewController.swift */,
 			);
 			path = BMI_Caclulator;
 			sourceTree = "<group>";
@@ -128,6 +134,7 @@
 				4169E3E021C3343E0060CC48 /* LaunchScreen.storyboard in Resources */,
 				4169E3DD21C3343E0060CC48 /* Assets.xcassets in Resources */,
 				4169E3D821C3343C0060CC48 /* Main.storyboard in Resources */,
+				4169E3E821C335140060CC48 /* Health.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +148,7 @@
 				4169E3DB21C3343C0060CC48 /* BMI_Caclulator.xcdatamodeld in Sources */,
 				4169E3D521C3343C0060CC48 /* ViewController.swift in Sources */,
 				4169E3D321C3343C0060CC48 /* AppDelegate.swift in Sources */,
+				4169E3EA21C33AEB0060CC48 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
